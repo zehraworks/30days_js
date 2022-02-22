@@ -319,3 +319,271 @@ for (const elements of fullStack) {
     console.log(inside)
   }
 }
+
+
+// LEVEL 3 *********************
+
+//1
+countriesCopy = countries.slice()
+console.log(countriesCopy)
+
+//2
+const sortedCountries = countriesCopy.sort()
+console.log(sortedCountries)
+
+//3
+webTechs.sort()
+mernStack.sort()
+
+console.log(webTechs, mernStack)
+
+//4
+
+countries2 = [
+  'Afghanistan',
+  'Albania',
+  'Algeria',
+  'Andorra',
+  'Angola',
+  'Antigua and Barbuda',
+  'Argentina',
+  'Armenia',
+  'Australia',
+  'Austria',
+  'Azerbaijan',
+  'Bahamas',
+  'Bahrain',
+  'Bangladesh',
+  'Barbados',
+  'Belarus',
+  'Belgium',
+  'Belize',
+  'Benin',
+  'Bhutan',
+  'Bolivia',
+  'Bosnia and Herzegovina',
+  'Botswana',
+  'Brazil',
+  'Brunei',
+  'Bulgaria',
+  'Burkina Faso',
+  'Burundi',
+  'Cambodia',
+  'Cameroon',
+  'Canada',
+  'Cape Verde',
+  'Central African Republic',
+  'Chad',
+  'Chile',
+  'China',
+  'Colombi',
+  'Comoros',
+  'Congo (Brazzaville)',
+  'Congo',
+  'Costa Rica',
+  "Cote d'Ivoire",
+  'Croatia',
+  'Cuba',
+  'Cyprus',
+  'Czech Republic',
+  'Denmark',
+  'Djibouti',
+  'Dominica',
+  'Dominican Republic',
+  'East Timor (Timor Timur)',
+  'Ecuador',
+  'Egypt',
+  'El Salvador',
+  'Equatorial Guinea',
+  'Eritrea',
+  'Estonia',
+  'Ethiopia',
+  'Fiji',
+  'Finland',
+  'France',
+  'Gabon',
+  'Gambia, The',
+  'Georgia',
+  'Germany',
+  'Ghana',
+  'Greece',
+  'Grenada',
+  'Guatemala',
+  'Guinea',
+  'Guinea-Bissau',
+  'Guyana',
+  'Haiti',
+  'Honduras',
+  'Hungary',
+  'Iceland',
+  'India',
+  'Indonesia',
+  'Iran',
+  'Iraq',
+  'Ireland',
+  'Israel',
+  'Italy',
+  'Jamaica',
+  'Japan',
+  'Jordan',
+  'Kazakhstan',
+  'Kenya',
+  'Kiribati',
+  'Korea, North',
+  'Korea, South',
+  'Kuwait',
+  'Kyrgyzstan',
+  'Laos',
+  'Latvia',
+  'Lebanon',
+  'Lesotho',
+  'Liberia',
+  'Libya',
+  'Liechtenstein',
+  'Lithuania',
+  'Luxembourg',
+  'Macedonia',
+  'Madagascar',
+  'Malawi',
+  'Malaysia',
+  'Maldives',
+  'Mali',
+  'Malta',
+  'Marshall Islands',
+  'Mauritania',
+  'Mauritius',
+  'Mexico',
+  'Micronesia',
+  'Moldova',
+  'Monaco',
+  'Mongolia',
+  'Morocco',
+  'Mozambique',
+  'Myanmar',
+  'Namibia',
+  'Nauru',
+  'Nepal',
+  'Netherlands',
+  'New Zealand',
+  'Nicaragua',
+  'Niger',
+  'Nigeria',
+  'Norway',
+  'Oman',
+  'Pakistan',
+  'Palau',
+  'Panama',
+  'Papua New Guinea',
+  'Paraguay',
+  'Peru',
+  'Philippines',
+  'Poland',
+  'Portugal',
+  'Qatar',
+  'Romania',
+  'Russia',
+  'Rwanda',
+  'Saint Kitts and Nevis',
+  'Saint Lucia',
+  'Saint Vincent',
+  'Samoa',
+  'San Marino',
+  'Sao Tome and Principe',
+  'Saudi Arabia',
+  'Senegal',
+  'Serbia and Montenegro',
+  'Seychelles',
+  'Sierra Leone',
+  'Singapore',
+  'Slovakia',
+  'Slovenia',
+  'Solomon Islands',
+  'Somalia',
+  'South Africa',
+  'Spain',
+  'Sri Lanka',
+  'Sudan',
+  'Suriname',
+  'Swaziland',
+  'Sweden',
+  'Switzerland',
+  'Syria',
+  'Taiwan',
+  'Tajikistan',
+  'Tanzania',
+  'Thailand',
+  'Togo',
+  'Tonga',
+  'Trinidad and Tobago',
+  'Tunisia',
+  'Turkey',
+  'Turkmenistan',
+  'Tuvalu',
+  'Uganda',
+  'Ukraine',
+  'United Arab Emirates',
+  'United Kingdom',
+  'United States',
+  'Uruguay',
+  'Uzbekistan',
+  'Vanuatu',
+  'Vatican City',
+  'Venezuela',
+  'Vietnam',
+  'Yemen',
+  'Zambia',
+  'Zimbabwe'
+]
+
+let landArr2 = [];
+for (i = 0; i < countries2.length; i++) {
+  if (countries2[i].includes("land")) {
+    landArr2.push(countries2[i]);
+  } else {
+    landArr2
+  }
+}
+landArr2.length > 0 ? console.log(landArr) : console.log("All these countries are without land")
+
+//5
+j2 = 0
+e2 = ""
+for (i = 0; i < countries2.length; i++) {
+    if (j2 < countries2[i].length) {
+        j2 = countries2[i].length
+        e2 = countries2[i]
+    }
+}
+console.log(e2)
+
+//6
+let landArray2 = [];
+for (i = 0; i < countries2.length; i++) {
+  if (countries2[i].includes("land")) {
+    landArray2.push(countries2[i]);
+  } else {
+    landArr
+  }
+}
+landArray2.length > 0 ? console.log(landArray2) : console.log("All these countries are without land")
+
+//7
+let fourLength = []
+for (i = 0; i < countries2.length; i++) {
+  countries2[i].length == 4 ? fourLength.push(countries2[i]) : fourLength
+}
+console.log(fourLength)
+
+//8
+let spacedCountry = []
+for (i = 0; i < countries2.length; i++) {
+  countries2[i].includes(" ") ? spacedCountry.push(countries2[i]) : spacedCountry
+}
+console.log(spacedCountry)
+
+//9
+let revCapCountry = []
+for (i = (countries2.length-1); i >= 0; i--) {
+  revCapCountry.push(countries2[i].toUpperCase())
+}
+console.log(revCapCountry)
