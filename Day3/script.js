@@ -158,9 +158,7 @@ hour = hour.toString().length < 2 ? "0" + hour : hour
 minutes = minutes.toString().length < 2 ? "0" + minutes : minutes
 
 console.log(
-    `${year}-${month}-${day} ${hour}:${minutes}`,
-    `${day}-${month}-${year} ${hour}:${minutes}`,
-    `${day}/${month}/${year} ${hour}:${minutes}`
+    `i. ${year}-${month}-${day} ${hour}:${minutes}\nii. ${day}-${month}-${year} ${hour}:${minutes}\niii. ${day}/${month}/${year} ${hour}:${minutes}`
 )
 
 // Level 3 *****************

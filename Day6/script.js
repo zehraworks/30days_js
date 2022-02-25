@@ -539,11 +539,10 @@ let landArr2 = [];
 for (i = 0; i < countries2.length; i++) {
   if (countries2[i].includes("land")) {
     landArr2.push(countries2[i]);
-  } else {
-    landArr2
-  }
+  } 
 }
-landArr2.length > 0 ? console.log(landArr) : console.log("All these countries are without land")
+let land = landArr2.length > 0 ? landArr : "All these countries are without land"
+console.log(land)
 
 //5
 j2 = 0
