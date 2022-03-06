@@ -387,7 +387,7 @@ function arrayOfRgbColors() {
 }
 arrayOfRgbColors();
 
-//5 ??? convertHexaToRgb
+//5 !!! convertHexaToRgb
 function RGBToHex(rgb) {
   // Choose correct separator
   let sep = rgb.indexOf(",") > -1 ? "," : " ";
@@ -472,7 +472,7 @@ console.log(isEmpty());
 //11 Same with L2 Q14
 
 //12
-const arrayExample = [5, 7, 13, 20, 100];
+const arrayExample = [5, 7, 20, 13, 20, 100];
 function sumOfArrayItems(array) {
   let sum = 0;
 
@@ -488,3 +488,131 @@ function sumOfArrayItems(array) {
 }
 console.log(sumOfArrayItems(arrayExample));
 
+//13
+function average(array) {
+  let sum = 0;
+
+  for (const item of array) {
+    if (typeof item !== "number") {
+      return "all array items must be number";
+    } else {
+      sum += item;
+    }
+    average = sum / array.length;
+  }
+
+  return average;
+}
+console.log(average(arrayExample));
+
+//14
+function modifyArray(array) {
+  if (array.length > 5) {
+    array.splice(4, 1, array[4].toUpperCase());
+  } else {
+    return "Not Found";
+  }
+  return array;
+}
+console.log(
+  modifyArray(["Avocado", "Tomato", "Potato", "Mango", "Lemon", "Carrot"])
+);
+
+//15 !!!
+const isPrime = (num) => {
+  for (var i = 2; i < num; i++) if (num % i == 0) return false;
+  return num >= 2;
+};
+console.log(isPrime(17));
+
+//16 !!!
+function unique(array) {
+  array.sort();
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === array[i + 1]) {
+      console.log("not unique");
+    } else {
+      console.log("unique");
+    }
+  }
+}
+unique(arrayExample);
+
+//17 !!! ternary w/ return? wolf solution?
+function checkDataTypes(array) {
+  type = [];
+  for (const element of array) {
+    type.push(typeof element);
+  }
+  type.sort();
+  type[0] === type[type.length - 1]
+    ? console.log("same data types")
+    : console.log("different data types");
+}
+checkDataTypes(arrayExample);
+
+//18
+function isValidVariable(name) {
+  const charset = [
+    "$",
+    "_",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "y",
+    "z",
+    "q",
+    "w",
+    "x",
+  ];
+
+  if (!charset.includes(name[0])) {
+    console.log("invalid function name");
+  } else {
+    console.log("valid function name");
+  }
+}
+isValidVariable("#func");
+
+//19
+function uniqueNumbers() {
+  const charset = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const array = [];
+  let rand = 0;
+
+  for (i = 0; i < 8; i++) {
+    rand = Math.round(Math.random() * (charset.length - 1));
+    array.push(charset[rand]);
+    charset.splice(rand, 1);
+  }
+  console.log(array);
+}
+uniqueNumbers();
+
+//20
+function reverseCountries(array) {
+  const countriesR = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    countriesR.push(array[i]);
+  }
+  console.log(countriesR);
+}
+reverseCountries(["Turkey", "Germany", "France"]);
