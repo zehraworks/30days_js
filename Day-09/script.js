@@ -111,3 +111,75 @@ console.log(countries.findIndex((c) => c === "Norway"));
 
 //26
 console.log(countries.findIndex((c) => c === "Russia"));
+
+//Level 2
+//1
+const totalPrice = products
+  .map((p) => p.price)
+  .filter((p) => typeof p === "number")
+  .reduce((sum, curr) => (sum += curr));
+console.log(totalPrice);
+
+//2
+const sumPrices = products.reduce(
+  (sum, p) => (typeof p.price == "number" ? (sum += p.price) : sum),
+  0
+);
+console.log(sumPrices);
+
+//3
+import { countriesAll } from "./countries.js";
+
+function categorizeCountries(category) {
+  return countriesAll.map((c) => c.name).filter((c) => c.includes(category));
+}
+console.log(categorizeCountries("land"));
+console.log(categorizeCountries("stan"));
+
+//4
+function letterNumber(letter) {
+  let countryStartWith = countriesAll
+    .map((c) => c.name)
+    .filter((n) => n.startsWith(letter.toUpperCase()));
+  return `${
+    countryStartWith.length
+  } countries start with ${letter.toUpperCase()} letter`;
+}
+console.log(letterNumber("k"));
+
+//5
+function getFirstTenCountries(array) {
+  array.forEach((item, index) => {
+    if (index < 10) {
+      console.log(item);
+    }
+  });
+}
+getFirstTenCountries(countriesAll);
+
+//6
+function getLastTenCountries(array) {
+  let last = array.length - 10;
+  array.forEach((item, index) => {
+    if (index >= last) {
+      console.log(item);
+    }
+  });
+}
+getLastTenCountries(countriesAll);
+
+//7
+const counts = {};
+function getNames(array) {
+  let newArray = array
+    .map((item) => item.name)
+    .map((x) => {
+      return x.charAt(0);
+    });
+
+  newArray.forEach(x => {
+    counts[x] = (counts[x] || 0) + 1;
+  });
+  return counts;
+}
+console.log(getNames(countriesAll));
