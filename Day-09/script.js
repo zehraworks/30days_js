@@ -171,15 +171,146 @@ getLastTenCountries(countriesAll);
 //7
 const counts = {};
 function getNames(array) {
-  let newArray = array
-    .map((item) => item.name)
-    .map((x) => {
-      return x.charAt(0);
-    });
-
-  newArray.forEach(x => {
+  let newArray = array.map((item) => item.name.charAt(0));
+  newArray.forEach((x) => {
     counts[x] = (counts[x] || 0) + 1;
   });
   return counts;
 }
 console.log(getNames(countriesAll));
+
+//Level 3
+//1
+/* console.log(countriesAll.sort((a, b) => b.name.localeCompare(a.name)));
+console.log(countriesAll.sort((a, b) => b.capital.localeCompare(a.capital)));
+console.log(countriesAll.sort((a, b) => b.population - a.population)); 
+ */
+//2
+function mostSpokenLanguages(countriesArr, number) {
+  let parentLangArr = countriesArr.map((x) => x.languages);
+  const langArr = [];
+  for (const childLangArr of parentLangArr) {
+    for (const languages of childLangArr) {
+      langArr.push(languages);
+    }
+  }
+  const countedCountries = {};
+  langArr.forEach(function (x) {
+    countedCountries[x] = (countedCountries[x] || 0) + 1;
+  });
+  let sorted = Object.entries(countedCountries)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, number);
+  return Object.fromEntries(sorted);
+}
+console.log(mostSpokenLanguages(countriesAll, 7));
+
+//3
+function mostPopulatedCountries(countriesArr, number) {
+  return countriesArr
+    .sort((a, b) => b.population - a.population)
+    .slice(0, number)
+    .map((country) => {
+      return {
+        country: country.name,
+        population: country.population,
+      };
+    });
+}
+console.log(mostPopulatedCountries(countriesAll, 5));
+
+//4
+const statistics = {
+  data: [
+    31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37,
+    31, 34, 24, 33, 29, 26,
+  ],
+  count: function () {
+    return this.data.length;
+  },
+  sum: function () {
+    return this.data.reduce((acc, cur) => (acc += cur));
+  },
+  min: function () {
+    return Math.min(...this.data);
+  },
+  max: function () {
+    return Math.max(...this.data);
+  },
+  range: function () {
+    return this.max() - this.min();
+  },
+  mean: function () {
+    return Math.round(this.sum() / this.count());
+  },
+  median: function () {
+    let val = Math.round((this.count() - 1) / 2);
+    return this.data.sort((a, b) => a - b)[val];
+  },
+  mode: function () {
+    this.data.sort((a, b) => a - b);
+    let count = 1,
+      repeat = 1,
+      dump = "",
+      records = [];
+
+    for (let i = 0; i < this.count(); i++) {
+      dump = this.data[i];
+
+      if (dump == this.data[i + 1]) {
+        repeat += 1;
+      } else {
+        records.push({
+          mode: dump,
+          count: repeat,
+        });
+        repeat = 1;
+      }
+    }
+
+    return records.sort((a, b) => b.count - a.count).slice(0, 1)[0];
+  },
+  var: function () {
+    let mean = this.mean();
+
+    return (
+      Math.ceil(
+        (this.data.reduce((acc, cur) => (acc += (cur - mean) ** 2)) /
+          this.count()) *
+          2
+      ) / 2
+    );
+  },
+  std: function () {
+    return Math.sqrt(this.var()).toFixed(1);
+  },
+  freqDist: function () {
+    return "I don't want to deal with the calculation"
+  },
+  describe: function () {
+    return `Count: ${this.count()}
+Sum: ${this.sum()}
+Min: ${this.min()}
+Max: ${this.max()}
+Range: ${this.range()}
+Mean: ${this.mean()}
+Median: ${this.median()}
+Mode: ${this.mode()}
+Variance: ${this.var()}
+Standard Deviation: ${this.std()}
+Frequency Distribution: ${this.freqDist()}`;
+  },
+};
+
+console.log("Count:", statistics.count());
+console.log("Sum:", statistics.sum());
+console.log("Min:", statistics.min());
+console.log("Max:", statistics.max());
+console.log("Range:", statistics.range());
+console.log("Mean:", statistics.mean());
+console.log("Median:", statistics.median());
+console.log("Mode:", statistics.mode());
+console.log("Variance:", statistics.var());
+console.log("Standard Deviation:", statistics.std());
+console.log("Frequency Distribution:", statistics.freqDist());
+console.log(statistics.describe());
