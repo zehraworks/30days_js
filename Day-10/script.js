@@ -34,3 +34,22 @@ for (const country of countries) {
   countryMap.set(country, country.length);
 }
 console.log(countryMap);
+
+//Level 2
+//1
+const c = [...a, ...b]
+let union = new Set(c)
+console.log(union)
+
+//2
+let A = new Set(a)
+let B = new Set(b)
+
+let inter = a.filter((num) => B.has(num))
+let intersection = new Set(inter)
+console.log(intersection)
+
+//3
+let diff = a.filter((num) => !B.has(num))
+let difference = new Set(diff)
+console.log(difference)
