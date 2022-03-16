@@ -37,19 +37,61 @@ console.log(countryMap);
 
 //Level 2
 //1
-const c = [...a, ...b]
-let union = new Set(c)
-console.log(union)
+const c = [...a, ...b];
+let union = new Set(c);
+console.log(union);
 
 //2
-let A = new Set(a)
-let B = new Set(b)
+let A = new Set(a);
+let B = new Set(b);
 
-let inter = a.filter((num) => B.has(num))
-let intersection = new Set(inter)
-console.log(intersection)
+let inter = a.filter((num) => B.has(num));
+let intersection = new Set(inter);
+console.log(intersection);
 
 //3
-let diff = a.filter((num) => !B.has(num))
-let difference = new Set(diff)
-console.log(difference)
+let diff = a.filter((num) => !B.has(num));
+let difference = new Set(diff);
+console.log(difference);
+
+//Level 3
+//1
+let langSeparated = [];
+let lang = countriesAll.map((c) => c.languages);
+for (const langOut of lang) {
+  for (const langIn of langOut) {
+    langSeparated.push(langIn);
+  }
+}
+const x = new Set(langSeparated);
+console.log(x.size);
+
+//2
+function mostSpokenLanguages(country, number) {
+  const allLangs = country
+    .map((item) => item.languages)
+    .join(",")
+    .split(",")
+    .sort((a, b) => a.localeCompare(b));
+
+  const langs = new Set(allLangs);
+  const data = new Map();
+
+  for (let lang of langs) {
+    for (let item of allLangs) {
+      if (item == lang) {
+        if (!data.has(lang)) {
+          data.set(lang, 1);
+        } else {
+          let count = data.get(lang) + 1;
+          data.set(lang, count);
+        }
+      }
+    }
+  }
+  const result = new Map(
+    [...data.entries()].sort((a, b) => b[1] - a[1]).slice(0, number)
+  );
+  return result;
+}
+console.log(mostSpokenLanguages(countriesAll, 10));
