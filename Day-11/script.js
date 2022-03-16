@@ -62,3 +62,16 @@ console.log(fin, est, sw, den, nor)
 //3
 let { width, height, area, } = rectangle
 console.log(width, height, area)
+
+//Level 2
+//1
+for (const {name, scores, skills, age} of users) {
+    console.log(name, scores, skills, age)
+}
+
+//2
+for (const {name, skills} of users) {
+    if (skills.length < 2) {
+        console.log(name)
+    }
+}
