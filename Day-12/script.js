@@ -20,3 +20,32 @@ function is_valid_variable(str) {
 }
 console.log(is_valid_variable("first_name"));
 console.log(is_valid_variable("first-name"));
+
+//Level 2
+//1
+paragraph = `I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.`;
+
+function tenMostFrequentWords(paragraph, number) {
+  const arr = [];
+  arr.push(paragraph.match(/[\w]+/g));
+
+  let newArr = arr
+    .map((item) => item)
+    .join(",")
+    .split(",");
+
+  const counts = {};
+  newArr.forEach((x) => {
+    counts[x] = (counts[x] || 0) + 1;
+  });
+
+  const array = [];
+  Object.entries(counts)
+    .sort((a, b) => b[1] - a[1])
+    .forEach((x) => {
+      let [key, val] = [x[0], x[1]];
+      array.push({ word: key, count: val });
+    });
+  return array.slice(0, number);
+}
+console.log(tenMostFrequentWords(paragraph, 3));
