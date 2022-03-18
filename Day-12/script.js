@@ -49,3 +49,14 @@ function tenMostFrequentWords(paragraph, number) {
   return array.slice(0, number);
 }
 console.log(tenMostFrequentWords(paragraph, 3));
+
+//Level 3
+//1
+function cleanText(text) {
+    return text.replace(/[^\d\w\s]+/gi, "")
+}
+sentence = `%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?`
+console.log(cleanText(sentence))
+
+//2
+console.log(tenMostFrequentWords(cleanText(sentence), 5))
