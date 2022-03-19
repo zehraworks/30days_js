@@ -117,3 +117,7 @@ console.log(JSON.stringify(isMarried));
 
 //4
 console.log(JSON.stringify(student, undefined, 3));
+
+// Level 2
+//1
+console.log(JSON.stringify(student, ["firstName", "lastName", "skills"], 2))
