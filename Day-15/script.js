@@ -52,3 +52,18 @@ class Cat extends Animal {
 const cat = new Cat("Cat", 3, "gray", 4, 7, "street");
 console.log(cat);
 console.log(cat.getInfo());
+
+// Level 2
+//1
+class Dog extends Animal {
+  constructor(name, age, color, legs, numberOfChildren, habitats) {
+    super(name, age, color, legs);
+    this.numberOfChildren = numberOfChildren;
+    this.habitats = habitats;
+  }
+  getInfo() {
+    return `Name: ${this.name} \nHabitats: ${this.habitats}`;
+  }
+}
+let dog = new Dog("Dog", 5, "black", 4, 0, "home");
+console.log(dog.getInfo());
