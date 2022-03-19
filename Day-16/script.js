@@ -120,4 +120,16 @@ console.log(JSON.stringify(student, undefined, 3));
 
 // Level 2
 //1
-console.log(JSON.stringify(student, ["firstName", "lastName", "skills"], 2))
+console.log(JSON.stringify(student, ["firstName", "lastName", "skills"], 2));
+
+// Level 3
+//1
+let textObj = JSON.parse(txt);
+console.log(textObj);
+
+//2
+for (const [key, val] of Object.entries(textObj)) {
+  if (val.skills.length > 3) {
+    console.log(key);
+  }
+}
