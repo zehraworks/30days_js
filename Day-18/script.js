@@ -17,3 +17,16 @@ fetch(countriesAPI)
     );
   })
   .catch(() => console.log("error"));
+
+  // Level 2
+  //1
+  const fetchData = async () => {
+    try {
+      const response = await fetch(catsAPI)
+      const cats = await response.json()
+      console.log(cats.map(item => item.name))
+    } catch (err) {
+      console.error(err)
+    }
+}
+fetchData()
